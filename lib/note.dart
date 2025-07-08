@@ -120,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // 앱의 primary 색상이 어두운 파란색이라면, inversePrimary는 보통 밝은 흰색 계열로 설정됩니다.
         // 앱의 primary 색상이 밝은 노란색이라면, inversePrimary는 어두운 회색이나 검은색 계열로 설정됩니다.
         // (근데 지금 초록색 배경이던데??)
-        backgroundColor: Colors.pink,
+        backgroundColor: Colors.amber,
         // ANCHOR: Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         // NOTE: 여기서는 App.build 메서드로 생성된 MyHomePage 객체의 값을 가져와 앱 바 제목을 설정하는 데 사용합니다.
