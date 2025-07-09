@@ -3,6 +3,17 @@
 // 즉, 구글 디자인 가이드에 따른 사용자 인터페이스(UI)를 구축하기 위한 기본 구성 요소들을 제공합니다.
 import 'package:flutter/material.dart';
 
+// ANCHOR: main 함수는 Dart 언어의 약속된 진입점(entry point)입니다.
+// NOTE: void main()
+// 프로그램이 시작될 때 가장 먼저 실행됩니다.
+// void는 이 함수가 아무런 값도 반환하지 않음을 의미합니다.
+// NOTE: runApp()
+// Flutter 프레임워크가 제공하는 핵심 함수입니다.
+// 전달받은 위젯(Widget)을 화면의 루트(root) 위젯으로 만들어 전체 화면을 그리도록 지시하는 역할을 합니다.
+// 이 함수를 통해 비로소 우리가 만든 위젯이 화면에 나타나게 됩니다.
+// NOTE: const MyApp()
+// "앱이 시작되면, MyApp이라는 위젯을 화면 전체에 그려줘" 라는 의미를 가집니다.
+// 이 한 줄이 Flutter 앱의 생명을 불어넣는 첫 단계입니다.
 void main() {
   runApp(const MyApp());
 }
