@@ -1,3 +1,6 @@
+// ANCHOR: Flutter 애플리케이션 개발의 핵심적인 부분으로,
+// 구글의 머티리얼 디자인(Material Design) 시스템을 구현하는 데 필요한 위젯과 도구들의 포괄적인 라이브러리를 가져옵니다.
+// 즉, 구글 디자인 가이드에 따른 사용자 인터페이스(UI)를 구축하기 위한 기본 구성 요소들을 제공합니다.
 import 'package:flutter/material.dart';
 
 void main() {
