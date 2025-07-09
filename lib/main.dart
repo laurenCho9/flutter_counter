@@ -39,6 +39,17 @@ void main() {
 // seedColor(씨앗 색)로 Colors.green을 지정하면 Flutter가 이 색을 기반으로 조화로운 전체 색상 팔레트(기본색, 강조색 등)를 자동으로 생성해줍니다.
 // home: const MyHomePage(...): 앱이 처음 실행될 때 가장 먼저 보여줄 화면을 지정합니다.
 // 여기서는 MyHomePage라는 또 다른 커스텀 위젯을 첫 화면으로 설정하고, 'Flutter Demo Home Page'라는 title 값을 전달하고 있습니다.
+// TODO: @override
+// @override는 "이 메소드는 부모 클래스로부터 물려받은 메소드를 재정의(덮어쓰기)하는 것입니다" 라고
+// 명시적으로 알려주는 애너테이션(Annotation) 또는 표시입니다.
+// ❗️쉽게 말해, '실수 방지용 스티커'라고 생각하면 좋습니다.
+// ❗️@override가 없을 경우, 그냥 새로운 메소드를 만든 것으로 인식되어 오류가 발생하지 않습니다.
+// 요약하자면 주요 역할로 다음 2가지가 있습니다.
+// 1. 실수 방지(컴파일러 체크)
+// 2. 코드 가독성 향상
+// FIXME: 요약
+// MyApp 클래스는 상태가 없는 정적인 위젯으로, 앱이 실행되면 MaterialApp 이라는 큰 틀을 그립니다.
+// 이 틀 안에는 앱의 제목, 초록색 기반의 자동 생성 테마, 그리고 MyHomePage라는 첫 화면이 포함되어 있습니다.
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -54,6 +65,29 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// ANCHOR: MyHomePage 위젯은 앱의 첫 번째 화면을 구성하는 StatefulWidget입니다.
+// 이 코드는 동적인 데이터 변경이 가능한 **StatefulWidget**을 정의하는 부분입니다.
+// StatelessWidget과 달리, 이 위젯은 사용자의 상호작용이나 데이터 변경에 따라 화면을 다시 그릴 수 있습니다.
+// NOTE: class MyHomePage extends StatefulWidget
+// StatefulWidget(상태가 있는 위젯)을 상속받아 MyHomePage라는 새로운 위젯 클래스를 만듭니다.
+// 이 위젯은 내부적으로 변하는 상태를 가질 수 있으며, 그 상태가 변할 때마다 화면을 새로고침할 수 있습니다.
+// NOTE: const MyHomePage({super.key, required this.title});
+// MyHomePage 위젯의 생성자입니다.
+// required this.title: 이 위젯을 생성할 때는 반드시 title이라는 이름의 값을 전달해야 함을 의미합니다. required 키워드로 필수 항목임을 명시합니다.
+// NOTE: final String title;
+// 부모 위젯(MyApp)으로부터 전달받은 title 값을 저장하는 불변(immutable) 변수입니다.
+// final 키워드는 이 title 값이 MyHomePage 위젯이 생성된 이후에는 절대 변경될 수 없음을 보장합니다. 위젯 자체의 설정값은 바뀌지 않는다는 것이 중요합니다.
+// NOTE: ‼️@override State<MyHomePage> createState() => _MyHomePageState();
+// StatefulWidget의 가장 핵심적인 부분입니다.
+// 이 createState 메소드는 StatelessWidget의 build 메소드 대신 사용됩니다.
+// 이 메소드의 역할은 위젯의 상태를 관리할 별도의 '상태(State)' 객체를 생성하고 반환하는 것입니다.
+// => _MyHomePageState()는 _MyHomePageState 클래스의 인스턴스를 생성하여 반환하라는 의미입니다.
+// 이 _MyHomePageState 클래스가 바로 화면에 표시될 UI를 구성(build)하고, 변경 가능한 데이터들을 실제로 관리하게 됩니다.
+// FIXME: 요약
+// MyHomePage 클래스는 상태를 가질 수 있는 위젯의 '설계도'와 같습니다. 이 설계도 자체는 title과 같은 고정된 설정값만 가지고 있습니다.
+// ❗️진짜 중요한 역할은 createState() 메소드를 통해 _MyHomePageState라는 '상태 관리자' 객체를 생성하는 것입니다.
+// 앞으로 보게 될 _MyHomePageState 클래스가 실제로 화면을 그리고 데이터를 변경하는 모든 작업을 처리하게 됩니다.
+// 이처럼 Flutter는 **위젯의 설정(Widget)**과 **변경 가능한 상태(State)**를 두 개의 다른 클래스로 분리하여 코드를 체계적으로 관리합니다.
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
