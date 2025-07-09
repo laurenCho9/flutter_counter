@@ -18,6 +18,27 @@ void main() {
   runApp(const MyApp());
 }
 
+// ANCHOR: Flutter 애플리케이션의 최상위 뼈대를 정의하는 MyApp 위젯입니다. 앱의 기본적인 설정과 첫 화면을 지정하는 역할을 하죠.
+// NOTE: class MyApp extends StatelessWidget
+// StatelessWidget (상태가 없는 위젯)을 상속받아 MyApp이라는 새로운 위젯 클래스를 만듭니다.
+// StatelessWidget은 한번 그려진 후에는 내부적으로 상태가 변하지 않는 정적인 위젯으로써,
+// 이 위젯은 오직 부모 위젯으로부터 전달받은 값(설정)에 의해서만 모습이 결정됩니다.
+// NOTE: const MyApp({super.key});
+// MyApp 위젯의 생성자입니다. const로 선언되어 성능 최적화에 기여합니다.
+// {super.key}는 부모 클래스인 StatelessWidget에 key 값을 전달하는 부분입니다.
+// Key는 Flutter가 위젯들을 효율적으로 식별하고 관리하기 위해 사용됩니다.
+// NOTE: @override Widget build(BuildContext context)
+// build 메소드는 StatelessWidget이 화면에 그려져야 할 때 Flutter 프레임워크에 의해 자동으로 호출됩니다.
+// ❗️이 메소드는 실제로 화면에 표시될 위젯을 반환해야 합니다.
+// BuildContext context는 위젯 트리에서 현재 위젯의 위치와 관련된 정보를 담고 있는 중요한 객체입니다.
+// NOTE: return MaterialApp(...)
+// build 메소드가 MaterialApp 위젯을 반환합니다. MaterialApp은 머티리얼 디자인을 사용하는 앱을 만들기 위한 필수적인 최상위 위젯으로, 앱의 핵심 기능을 설정합니다.
+// title: 'Flutter Demo': 앱의 전반적인 제목입니다. 보통 기기의 앱 전환기 등에서 사용자에게 표시됩니다.
+// theme: ThemeData(...): 앱 전체에 적용될 디자인 테마를 설정합니다.
+// colorScheme: ColorScheme.fromSeed(seedColor: Colors.green): Material 3에서 도입된 방식으로,
+// seedColor(씨앗 색)로 Colors.green을 지정하면 Flutter가 이 색을 기반으로 조화로운 전체 색상 팔레트(기본색, 강조색 등)를 자동으로 생성해줍니다.
+// home: const MyHomePage(...): 앱이 처음 실행될 때 가장 먼저 보여줄 화면을 지정합니다.
+// 여기서는 MyHomePage라는 또 다른 커스텀 위젯을 첫 화면으로 설정하고, 'Flutter Demo Home Page'라는 title 값을 전달하고 있습니다.
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
