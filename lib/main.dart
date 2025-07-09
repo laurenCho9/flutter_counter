@@ -150,12 +150,31 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  // 초기화 기능 구현
+  void _resetCounter() {
+    setState(() {
+      _counter = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.pink[100],
         title: Text(widget.title),
+        // TODO: AppBar에 초기화 버튼 추가
+        actions: <Widget>[
+          // 아이콘으로 만들어진 버튼
+          IconButton(
+            // 표시할 아이콘 (새로고침 모양)
+            icon: const Icon(Icons.refresh),
+            // 아이콘을 길게 눌렀을 때 나타나는 풍선 도움말
+            tooltip: 'Reset Counter',
+            // 버튼을 눌렀을 때 실행될 함수를 지정
+            onPressed: _resetCounter,
+          ),
+        ],
       ),
       body: Center(
         child: Column(
