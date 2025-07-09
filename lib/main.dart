@@ -97,6 +97,43 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+// ANCHOR: _MyHomePageState는 상태를 관리하고 실제 화면을 그리는 가장 핵심적인 부분으로,
+// MyHomePage가 '설계도'였다면, _MyHomePageState는 그 설계도를 바탕으로 만들어진 '살아있는' 집과 같다.
+// NOTE: class _MyHomePageState extends State<MyHomePage>
+// State 클래스를 상속받아 MyHomePage 위젯의 상태를 관리하는 _MyHomePageState 클래스를 만듭니다.
+// ❗️클래스 이름 앞의 밑줄(_)은 이 클래스가 이 파일 안에서만 사용되는 비공개(private) 클래스임을 의미합니다.
+// NOTE: int _counter = 0;
+// 이 화면에서 변화하는 실제 데이터(상태) 입니다. _counter라는 정수 변수를 선언하고 0으로 초기화했습니다. ❗️이 숫자가 바뀔 때마다 화면도 함께 바뀝니다.
+// NOTE: void _incrementCounter() 와 void _decrementCounter()
+// _counter 값을 변경하는 함수들입니다.
+// ❗️여기서 가장 중요한 것은 setState() 함수입니다.
+// setState(() { ... });: Flutter에서 상태를 변경하는 유일하고 올바른 방법입니다.
+// setState 내에서 _counter 값을 증가시키거나 감소시킵니다.
+// setState는 Flutter 프레임워크에게 "여기 데이터가 바뀌었어!"라고 알립니다.
+// 알림을 받은 프레임워크는 화면을 새로고침하기 위해 build 메소드를 다시 호출합니다.
+// 결과적으로 _counter의 최신 값이 화면에 반영됩니다.
+// TODO: build 메소드 상세 분석 (화면 그리기)
+// build 메소드는 현재 상태(_counter 값)를 기반으로 UI를 어떻게 그릴지 결정합니다.
+// NOTE: return Scaffold(...)
+// 머티리얼 디자인의 기본 구조를 제공하는 Scaffold 위젯을 반환합니다.
+// NOTE: appBar: AppBar(...)
+// ‼️화면 상단의 앱 바를 정의합니다.
+// backgroundColor: Colors.pink[100]: 앱 바의 배경색을 연한 핑크색으로 지정합니다.
+// title: Text(widget.title): 앱 바의 제목을 표시합니다.
+// 여기서 widget.title은 부모 위젯인 MyHomePage가 가지고 있던 title 값에 접근하는 방법입니다.
+// 이처럼 State 클래스에서는 widget.을 통해 자신의 짝인 StatefulWidget의 프로퍼티를 참조할 수 있습니다.
+// NOTE: body: Center(...)
+// 화면의 중앙 본문 영역입니다. Center 위젯으로 자식 위젯을 중앙에 배치하고, Column 위젯으로 텍스트들을 세로로 나열합니다.
+// Text('$_counter', ...): 현재 _counter 변수의 값을 텍스트로 표시합니다. setState가 호출될 때마다 이 부분이 새로운 값으로 업데이트됩니다.
+// FIXME: ‼️요약
+// _MyHomePageState 클래스는 다음과 같은 일을 합니다.
+// 1. 데이터를 가진다 (_counter).
+// 2. 데이터를 변경하는 함수를 정의한다 (_incrementCounter 등).
+// 3. 데이터가 변경되면 setState를 호출하여 화면 갱신을 요청한다.
+// 4. ✨build 메소드를 통해 현재 데이터에 맞는 최신 UI를 그려낸다.
+// REVIEW: ‼️질문! class _MyHomePageState는 왜 앞에 언더바가 붙어?
+// 클래스나 변수 이름 앞에 붙는 언더바(_)는 Dart 언어에서 **비공개(private)**를 의미하는 약속입니다.
+// 즉, _MyHomePageState 클래스는 이 파일 안에서만 사용할 수 있다는 뜻입니다.
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
